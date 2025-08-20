@@ -32,6 +32,7 @@ public class ExistUserServlet extends HttpServlet {
 			pw.println("<td><input type=\"submit\" value=\"LOGIN\"></td>");
 			pw.println("</tr>");
 			pw.println("<table>");
+			pw.println("</form>");
 			pw.println("</body>");
 			pw.println("</html>");
 		} catch (IOException e) {
