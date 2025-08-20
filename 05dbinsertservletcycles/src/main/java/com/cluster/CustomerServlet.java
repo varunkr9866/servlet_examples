@@ -14,21 +14,21 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 public class CustomerServlet extends HttpServlet{
-		Connection con= null;
-		public void init(ServletConfig config) throws ServletException {
-			System.out.println("############# inside init method ");
+		Connection con=null;
+		public void init(ServletConfig config) throws ServletException{
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				System.out.println("Driver Is Loaded");
+				System.out.println("got the driver loaded");
 				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/varunmysql", "root", "Cluster");
-				System.out.println("^^^^^^^^^^^ inside init :"+ con);
+				System.out.println("Connection Established");
 			} catch (ClassNotFoundException | SQLException e) {
-				System.out.println("Caught Exception :" + e);
+				System.out.println("Caught The Exception:" + e);
 				e.printStackTrace();
-			}
+			}	
 		}
-		public void doPost(HttpServletRequest req, HttpServletResponse res) 
-				throws ServletException, IOException {
+		
+		public void service(HttpServletRequest req, HttpServletResponse res) 
+				throws ServletException, IOException{
 			res.setContentType("text/html");
 			PrintWriter pw = res.getWriter();
 			
@@ -40,10 +40,6 @@ public class CustomerServlet extends HttpServlet{
 			PreparedStatement pst = null;
 			
 			try {
-				Class.forName("com.mysql.cj.jdbc.Driver");
-				System.out.println("Driver Is Loaded");
-				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/varunmysql", "root", "Cluster");
-				System.out.println("Connection Established");
 				pst = con.prepareStatement("INSERT INTO CUSTOMER (CUS_NAME,CUS_PASSWORD,CUS_EMAIL,CUS_PHONE) VALUES(?,?,?,?);");
 				pst.setString(1, strName);
 				pst.setString(2, strPwd);
@@ -64,20 +60,29 @@ public class CustomerServlet extends HttpServlet{
 					pw.println("</body>");
 					pw.println("</html>");
 				}
-
-				
-			} catch (ClassNotFoundException | SQLException e) {
-				// TODO Auto-generated catch block
+			} catch (SQLException e) {
+				System.out.println("Caught The Exception:" + e);
 				e.printStackTrace();
 			}
 			finally {
 				try {
-					con.close();
-					pst.close();
+					if (pst != null) {
+						pst.close();
+					}
+					
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
+					System.out.println("Caught The Exception:" + e);
 					e.printStackTrace();
 				}
+			}
+		}
+		
+		public void destroy() {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				System.out.println("Caught The Exception:" + e);
+				e.printStackTrace();
 			}
 		}
 }
