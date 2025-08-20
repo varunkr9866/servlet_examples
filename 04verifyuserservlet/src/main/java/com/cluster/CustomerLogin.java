@@ -28,6 +28,7 @@ public class CustomerLogin extends HttpServlet {
 		Connection con = null;
 		Statement st = null;
 		ResultSet rs = null;
+		boolean b = false;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("Driver Loaded");
@@ -35,22 +36,18 @@ public class CustomerLogin extends HttpServlet {
 			System.out.println("Got The Connection");
 
 			st = con.createStatement();
-			rs =st.executeQuery("SELECT CUS_EMAIL,CUS_PASSWORD FROM CUSTOMER;");
-			Customer cus= null;
-			
+			rs = st.executeQuery("SELECT CUS_EMAIL,CUS_PASSWORD FROM CUSTOMER;");
 			while (rs.next()) {
-				cus = new Customer();
-				cus.setEmail(rs.getString(1));
-				cus.setPassword(rs.getString(2));
+				if (strEmail.equalsIgnoreCase(rs.getString("CUS_EMAIL")) && strPwd.equalsIgnoreCase(rs.getString("CUS_PASSWORD"))) {
+					b = true;
+					break;
+				}
 			}
-			String mail = cus.getEmail();
-			String pwd = cus.getPassword();
-			
-			if ()) {
+			if (b) {
 				pw.println("<html>");
-				pw.println("<body bgcolor='green'>");
+				pw.println("<body bgcolor='red'>");
 				pw.println("<h1>");
-				pw.println("HELLO WELCOME TO CLUSTER SOLUTIONS");
+				pw.println("WELCOME TO CLUSTER SOLUTIONS");
 				pw.println("</h1>");
 				pw.println("</body>");
 				pw.println("</html>");
@@ -58,16 +55,16 @@ public class CustomerLogin extends HttpServlet {
 				pw.println("<html>");
 				pw.println("<body bgcolor='red'>");
 				pw.println("<h1>");
-				pw.println("PLEASE ENTER THE CORRECT DETAILS");
+				pw.println("PLEASE SIGIN YOU ARE NOT A MEMBER");
 				pw.println("</h1>");
 				pw.println("</body>");
 				pw.println("</html>");
 			}
+
 		} catch (ClassNotFoundException | SQLException e) {
 			System.out.println("Exception Caught :" + e);
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 			try {
 				con.close();
 				st.close();
