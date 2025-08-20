@@ -10,6 +10,16 @@
 	<url-pattern>/exist</url-pattern>
 	</servlet-mapping>
 	
+	
+	<servlet>
+	<servlet-name>checkUser</servlet-name>
+	<servlet-class>com.cluster.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>checkUser</servlet-name>
+	<url-pattern>/check</url-pattern>
+	</servlet-mapping>
+	
 	<servlet>
 	<servlet-name>newUser</servlet-name>
 	<servlet-class>com.cluster.NewUserServlet</servlet-class>
