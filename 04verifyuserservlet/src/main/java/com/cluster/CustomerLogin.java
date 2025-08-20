@@ -43,7 +43,8 @@ public class CustomerLogin extends HttpServlet {
 					break;
 				}
 			}
-			if (b) {
+			if (b) 
+			{
 				pw.println("<html>");
 				pw.println("<body bgcolor='red'>");
 				pw.println("<h1>");
@@ -51,7 +52,8 @@ public class CustomerLogin extends HttpServlet {
 				pw.println("</h1>");
 				pw.println("</body>");
 				pw.println("</html>");
-			} else {
+			} else 
+			{
 				pw.println("<html>");
 				pw.println("<body bgcolor='red'>");
 				pw.println("<h1>");
