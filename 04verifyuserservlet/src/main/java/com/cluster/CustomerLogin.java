@@ -38,13 +38,13 @@ public class CustomerLogin extends HttpServlet {
 			st = con.createStatement();
 			rs = st.executeQuery("SELECT CUS_EMAIL,CUS_PASSWORD FROM CUSTOMER;");
 			while (rs.next()) {
-				if (strEmail.equalsIgnoreCase(rs.getString("CUS_EMAIL")) && strPwd.equalsIgnoreCase(rs.getString("CUS_PASSWORD"))) {
+				if (strEmail.equalsIgnoreCase(rs.getString("CUS_EMAIL"))
+						&& strPwd.equalsIgnoreCase(rs.getString("CUS_PASSWORD"))) {
 					b = true;
 					break;
 				}
 			}
-			if (b) 
-			{
+			if (b) {
 				pw.println("<html>");
 				pw.println("<body bgcolor='red'>");
 				pw.println("<h1>");
@@ -52,8 +52,7 @@ public class CustomerLogin extends HttpServlet {
 				pw.println("</h1>");
 				pw.println("</body>");
 				pw.println("</html>");
-			} else 
-			{
+			} else {
 				pw.println("<html>");
 				pw.println("<body bgcolor='red'>");
 				pw.println("<h1>");
