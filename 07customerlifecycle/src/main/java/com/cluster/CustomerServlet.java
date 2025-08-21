@@ -45,7 +45,7 @@ public class CustomerServlet extends HttpServlet{
 		PreparedStatement pst = null;
 		
 		try {
-			pst = con.prepareStatement("INSERT INTO CUSTOMER(NAME,PASSWORD,EMAIL,PHONE) VALUES (?,?,?,?)");
+			pst = con.prepareStatement("INSERT INTO CUSTOMER(CUM_NAME,CUM_PASSWORD,CUM_EMAIL,CUM_PHONE) VALUES (?,?,?,?)");
 			pst.setString(1, strNme);
 			pst.setString(2, strPwd);
 			pst.setString(3, strEmail);

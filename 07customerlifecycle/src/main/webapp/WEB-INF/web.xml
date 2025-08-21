@@ -1,42 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="https://jakarta.ee/xml/ns/jakartaee"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+	id="WebApp_ID" version="5.0">
 
 	<servlet>
-	<servlet-name>existUser</servlet-name>
-	<servlet-class>com.cluster.ExistUserServlet</servlet-class>
+		<servlet-name>existUser</servlet-name>
+		<servlet-class>com.cluster.LoginServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	<servlet-name>existUser</servlet-name>
-	<url-pattern>/exist</url-pattern>
+		<servlet-name>existUser</servlet-name>
+		<url-pattern>/exist</url-pattern>
 	</servlet-mapping>
-	
-	
-	
+
+
+
 	<servlet>
-	<servlet-name>checkUser</servlet-name>
-	<servlet-class>com.cluster.LoginServlet</servlet-class>
+		<servlet-name>checkUser</servlet-name>
+		<servlet-class>com.cluster.ExistUserServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	<servlet-name>checkUser</servlet-name>
-	<url-pattern>/check</url-pattern>
+		<servlet-name>checkUser</servlet-name>
+		<url-pattern>/check</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
-	<servlet-name>newUser</servlet-name>
-	<servlet-class>com.cluster.NewUserServlet</servlet-class>
+		<servlet-name>newUser</servlet-name>
+		<servlet-class>com.cluster.NewUserServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	<servlet-name>newUser</servlet-name>
-	<url-pattern>/new</url-pattern>
+		<servlet-name>newUser</servlet-name>
+		<url-pattern>/new</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
-	<servlet-name>Customer</servlet-name>
-	<servlet-class>com.cluster.CustomerServlet</servlet-class>
+		<servlet-name>Customer</servlet-name>
+		<servlet-class>com.cluster.CustomerServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	<servlet-name>Customer</servlet-name>
-	<url-pattern>/sign</url-pattern>
+		<servlet-name>Customer</servlet-name>
+		<url-pattern>/sign</url-pattern>
 	</servlet-mapping>
-	
+
 </web-app>

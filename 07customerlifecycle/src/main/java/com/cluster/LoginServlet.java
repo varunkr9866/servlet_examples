@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class LoginServlet extends HttpServlet{
+public class LoginServlet extends HttpServlet {
 	Connection con;
 
 	public void init(ServletConfig config) throws ServletException {
@@ -31,8 +31,7 @@ public class LoginServlet extends HttpServlet{
 		}
 	}
 
-	public void doPost(HttpServletRequest req, HttpServletResponse res)
-			throws ServletException, IOException {
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
 		System.out.println("############Inside doPost() method");
 		ResultSet rs = null;
@@ -45,9 +44,10 @@ public class LoginServlet extends HttpServlet{
 
 		try {
 			st = con.createStatement();
-			rs = st.executeQuery("SELECT NAME, PASSWORD FROM CUSTOMER");
+			rs = st.executeQuery("SELECT CUS_NAME, CUS_PASSWORD FROM CUSTOMER");
 			while (rs.next()) {
-				if ((strName.equalsIgnoreCase(rs.getString("NAME")))&& (strPassword.equalsIgnoreCase(rs.getString("PASSWORD")))) {
+				if ((strName.equalsIgnoreCase(rs.getString("CUM_NAME")))
+						&& (strPassword.equalsIgnoreCase(rs.getString("CUM_PASSWORD")))) {
 					b = true;
 					break;
 				}
@@ -65,20 +65,17 @@ public class LoginServlet extends HttpServlet{
 				writer.println("</body>");
 				writer.println("</html>");
 			}
-		} 
-		
+		}
+
 		catch (SQLException sqle) {
 			sqle.printStackTrace();
-		} 
-		finally {
+		} finally {
 			try {
-				if(rs!=null)
-				{
-				rs.close();
+				if (rs != null) {
+					rs.close();
 				}
-				if(st!=null)
-				{
-				st.close();
+				if (st != null) {
+					st.close();
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();

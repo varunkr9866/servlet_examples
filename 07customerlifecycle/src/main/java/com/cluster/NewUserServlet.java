@@ -8,12 +8,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class NewUserServlet extends HttpServlet{
-	public void doGet(HttpServletRequest req, HttpServletResponse res)
-			throws ServletException, IOException {
+public class NewUserServlet extends HttpServlet {
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		res.setContentType("text/html");
 		PrintWriter pw = res.getWriter();
-		
+
 		pw.println("<html>");
 		pw.println("<body bgcolor='orange'>");
 		pw.println("<h1>please enter your details</h1>");
