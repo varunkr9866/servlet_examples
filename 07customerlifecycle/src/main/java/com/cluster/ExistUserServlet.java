@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class ExistUserServlet extends HttpServlet {
 
-	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException {
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException {
 		res.setContentType("text/html");
 
 		try {

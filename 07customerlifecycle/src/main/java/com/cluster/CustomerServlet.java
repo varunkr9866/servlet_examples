@@ -30,7 +30,7 @@ public class CustomerServlet extends HttpServlet{
 		}
 	}
 	
-	public void doPost(HttpServletRequest req, HttpServletResponse res)
+	public void Service(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		
 		System.out.println("############Inside doPost() method");

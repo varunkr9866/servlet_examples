@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 		}
 	}
 
-	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	public void Service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
 		System.out.println("############Inside doPost() method");
 		ResultSet rs = null;
