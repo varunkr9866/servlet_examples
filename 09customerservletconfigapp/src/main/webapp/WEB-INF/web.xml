@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
+  <servlet>
+		<servlet-name>existUser</servlet-name>
+		<servlet-class>com.cluster.ExistingUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>existUser</servlet-name>
+		<url-pattern>/exist</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>com.cluster.LoginServlet</servlet-class>
+		<init-param>
+			<param-name>driver</param-name>
+			<param-value>com.mysql.cj.jdbc.Driver</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dburl</param-name>
+			<param-value>jdbc:mysql://localhost:3306/varunmysql</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dbuid</param-name>
+			<param-value>root</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dbpwd</param-name>
+			<param-value>Cluster</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/check</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>newUser</servlet-name>
+		<servlet-class>com.cluster.NewUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>newUser</servlet-name>
+		<url-pattern>/new</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>customer</servlet-name>
+		<servlet-class>com.cluster.CustomerServlet</servlet-class>
+		<init-param>
+			<param-name>driver</param-name>
+			<param-value>oracle.jdbc.driver.OracleDriver</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dburl</param-name>
+			<param-value>jdbc:oracle:thin:@localhost:1521:XE</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dbuid</param-name>
+			<param-value>ravioracle</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dbpwd</param-name>
+			<param-value>ravioracle</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>customer</servlet-name>
+		<url-pattern>/sign</url-pattern>
+	</servlet-mapping>
+</web-app>

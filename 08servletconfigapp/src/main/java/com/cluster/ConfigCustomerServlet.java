@@ -41,7 +41,7 @@ public class ConfigCustomerServlet extends HttpServlet {
 
 		try {
 			PrintWriter pw = res.getWriter();
-			int i = 0;
+			int i;
 			pst = con.prepareStatement(
 					"INSERT INTO CUSTOMER (CUS_NAME,CUS_PASSWORD,CUS_EMAIL,CUS_PHONE) VALUES(?,?,?,?)");
 
@@ -51,7 +51,7 @@ public class ConfigCustomerServlet extends HttpServlet {
 			pst.setString(1, strPhone);
 			i = pst.executeUpdate();
 
-			if (i == 1) {
+			if (i==1) {
 				pw.println("<html>");
 				pw.println("<body bgcolor='green'>");
 				pw.println("Hello Mr " + strName + " Thank you for becoming a member");
