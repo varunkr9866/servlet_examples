@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,11 +19,12 @@ public class LoginServlet extends HttpServlet{
 	Connection con;
 
 	public void init(ServletConfig config) throws ServletException {
-		System.out.println("############Inside init() method");
-		String strDriver = config.getInitParameter("driver");
-		String strUrl = config.getInitParameter("dburl");
-		String strUserId = config.getInitParameter("dbuid");
-		String strPassword = config.getInitParameter("dbpwd");
+		ServletContext ctx = config.getServletContext();
+		
+		String strDriver = ctx.getInitParameter("driver");
+		String strUrl = ctx.getInitParameter("dburl");
+		String strUserId = ctx.getInitParameter("dbuid");
+		String strPassword = ctx.getInitParameter("dbpwd");
 		try {
 			Class.forName(strDriver);
 			con = DriverManager.getConnection(strUrl, strUserId,strPassword);
