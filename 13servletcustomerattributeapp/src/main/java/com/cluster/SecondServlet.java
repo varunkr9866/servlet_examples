@@ -9,23 +9,25 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class FirstServlet extends HttpServlet{
+public class SecondServlet extends HttpServlet{
 	public void service(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		
 		res.setContentType("text/html");
 		PrintWriter pw = res.getWriter();
 		ServletContext ctx = getServletContext();
+		// getting context attributes
+		Object e = ctx.getAttribute("company");
+		String strCompName = e.toString();
 		
-		// setting attribute value
-		ctx.setAttribute("company","IBM");
+		// getting context parameters
+		String strCountry = ctx.getInitParameter("country");
 		
 		pw.println("<html>");
-		pw.println("<body bgcolor='yellow'>");
-		pw.println("<form action='./sec'>");
-		pw.println("<h1>Please click here to go to Second Servlet</h1>");
-		pw.println("<center><input type='submit' value='SECOND'></center>");
-		pw.println("</form>");
+		pw.println("<body bgcolor='wheat'>");
+		pw.println("<h1>Displaying both context attribute value and parameter value </h1>");
+		pw.println("Context attribute value is " + strCompName + "<br>");
+		pw.println("Context parameter value is " + strCountry);
 		pw.println("</body>");
 		pw.println("</html>");
 	}
