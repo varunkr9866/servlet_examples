@@ -19,9 +19,11 @@ public class CustomerServlet extends HttpServlet{
 	public void init(ServletConfig config) throws ServletException {
 		System.out.println("############Inside init() method");
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "ravioracle", "ravioracle");
-		} catch (ClassNotFoundException cnfe) {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("got the driver loaded");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/varunmysql", "root", "Cluster");
+			System.out.println("Connection Established");
+			} catch (ClassNotFoundException cnfe) {
 			System.out.println(cnfe);
 		} catch (SQLException sqle) {
 			System.out.println(sqle);

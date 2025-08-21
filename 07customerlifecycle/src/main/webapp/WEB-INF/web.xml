@@ -11,6 +11,7 @@
 	</servlet-mapping>
 	
 	
+	
 	<servlet>
 	<servlet-name>checkUser</servlet-name>
 	<servlet-class>com.cluster.LoginServlet</servlet-class>
@@ -26,7 +27,16 @@
 	</servlet>
 	<servlet-mapping>
 	<servlet-name>newUser</servlet-name>
-	<url-pattern>/check</url-pattern>
+	<url-pattern>/new</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>Customer</servlet-name>
+	<servlet-class>com.cluster.CustomerServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>Customer</servlet-name>
+	<url-pattern>/sign</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

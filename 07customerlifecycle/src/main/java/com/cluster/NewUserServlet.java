@@ -13,7 +13,7 @@ public class NewUserServlet extends HttpServlet{
 			throws ServletException, IOException {
 		res.setContentType("text/html");
 		PrintWriter pw = res.getWriter();
-
+		
 		pw.println("<html>");
 		pw.println("<body bgcolor='orange'>");
 		pw.println("<h1>please enter your details</h1>");

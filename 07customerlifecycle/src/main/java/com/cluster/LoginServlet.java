@@ -12,6 +12,7 @@ import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 public class LoginServlet extends HttpServlet{
 	Connection con;
@@ -19,8 +20,10 @@ public class LoginServlet extends HttpServlet{
 	public void init(ServletConfig config) throws ServletException {
 		System.out.println("############Inside init() method");
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "ravioracle", "ravioracle");
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("got the driver loaded");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/varunmysql", "root", "Cluster");
+			System.out.println("Connection Established");
 		} catch (ClassNotFoundException cnfe) {
 			System.out.println(cnfe);
 		} catch (SQLException sqle) {
@@ -28,9 +31,8 @@ public class LoginServlet extends HttpServlet{
 		}
 	}
 
-	public void doPost(HttpServletRequest req, HttpServletRequest res)
-			throws ServletException
-			, IOException {
+	public void doPost(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException, IOException {
 
 		System.out.println("############Inside doPost() method");
 		ResultSet rs = null;
@@ -43,9 +45,9 @@ public class LoginServlet extends HttpServlet{
 
 		try {
 			st = con.createStatement();
-			rs = st.executeQuery("SELECT CUS_NAME, CUS_PASSWORD FROM CUSTOMER");
+			rs = st.executeQuery("SELECT NAME, PASSWORD FROM CUSTOMER");
 			while (rs.next()) {
-				if ((strName.equalsIgnoreCase(rs.getString("CUS_NAME")))&& (strPassword.equalsIgnoreCase(rs.getString("CUS_PASSWORD")))) {
+				if ((strName.equalsIgnoreCase(rs.getString("NAME")))&& (strPassword.equalsIgnoreCase(rs.getString("PASSWORD")))) {
 					b = true;
 					break;
 				}
