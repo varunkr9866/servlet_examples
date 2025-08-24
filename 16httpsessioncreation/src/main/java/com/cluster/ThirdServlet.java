@@ -1,5 +1,7 @@
 package com.cluster;
 
-public class ThirdServlet {
+import jakarta.servlet.http.HttpServlet;
+
+public class ThirdServlet extends HttpServlet{
 
 }
