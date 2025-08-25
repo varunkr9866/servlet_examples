@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
+  <servlet>
+		<servlet-name>first</servlet-name>
+		<servlet-class>com.cluster.FirstServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>first</servlet-name>
+		<url-pattern>/one</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>second</servlet-name>
+		<servlet-class>com.cluster.SecondServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>second</servlet-name>
+		<url-pattern>/two</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>third</servlet-name>
+		<servlet-class>com.cluster.ThirdServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>third</servlet-name>
+		<url-pattern>/three</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>fourth</servlet-name>
+		<servlet-class>com.cluster.FourthServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>fourth</servlet-name>
+		<url-pattern>/four</url-pattern>
+	</servlet-mapping>
+
+</web-app>
