@@ -17,7 +17,11 @@
 --><!-- Note:  A "Server" is not itself a "Container", so you may not
      define subcomponents such as "Valves" at this level.
      Documentation at /docs/config/server.html
+<<<<<<< HEAD
  --><Server port="8080" shutdown="SHUTDOWN">
+=======
+ --><Server port="8082" shutdown="SHUTDOWN">
+>>>>>>> 5302f6a282f6c7141432f87249f4fd9dd213c345
   <Listener className="org.apache.catalina.startup.VersionLoggerListener"/>
   <!-- Security listener. Documentation at /docs/config/listeners.html
   <Listener className="org.apache.catalina.security.SecurityListener" />
@@ -61,7 +65,11 @@
          AJP  Connector: /docs/config/ajp.html
          Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
     -->
+<<<<<<< HEAD
     <Connector connectionTimeout="20000" port="8006" protocol="HTTP/1.1" redirectPort="8443"/>
+=======
+    <Connector connectionTimeout="20000" port="8081" protocol="HTTP/1.1" redirectPort="8443"/>
+>>>>>>> 5302f6a282f6c7141432f87249f4fd9dd213c345
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -136,7 +144,11 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
+<<<<<<< HEAD
       <Context docBase="17sessionurlwriting" path="/17sessionurlwriting" reloadable="true" source="org.eclipse.jst.jee.server:17sessionurlwriting"/></Host>
+=======
+      </Host>
+>>>>>>> 5302f6a282f6c7141432f87249f4fd9dd213c345
     </Engine>
   </Service>
 </Server>
